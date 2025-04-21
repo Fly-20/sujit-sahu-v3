@@ -5,6 +5,12 @@ import { books } from '@/data/books';
 import BookFeatureList from '@/components/books/BookFeatureList';
 import TableOfContents from '@/components/books/TableOfContents';
 
+export function generateStaticParams() {
+  return Object.keys(books).map((bookId) => ({
+    bookId,
+  }));
+}
+
 export default function BookPage({ params }: { params: { bookId: string } }) {
   const { bookId } = params;
   const book = books[bookId];
