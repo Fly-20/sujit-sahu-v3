@@ -112,13 +112,140 @@ export default function BookPage({ params }: { params: { bookId: string } }) {
                   </div>
                 ) : (
                   <p className="text-gray-600 mb-6 text-lg">
-                    It is now possible to order this book from Waterstones, or Barnes & Noble, or foyles bookshops or Amazon.com or Amazon.co.uk in the UK.
-                    The book is based on my lecture notes for many courses (modules), for example, Introduction to Probability and Statistics, taught to first and second year students in various BSc in Mathematics degree programmes.
+                    It is now possible to order this book from
+                    <a href="https://www.waterstones.com/book/introduction-to-probability-statistics-and-r/sujit-k-sahu/9783031378645" className="text-blue-600 hover:text-blue-800"> Waterstones, </a>
+                    or
+                    <a href="https://www.barnesandnoble.com/w/introduction-to-probability-statistics-r-sujit-k-sahu/1143708068?ean=9783031378652" className="text-blue-600 hover:text-blue-800"> Barnes & Noble, </a>
+                    or
+                    <a href="https://www.foyles.co.uk/book/introduction-to-probability-statistics-and-r/sujit-k-sahu/9783031378645" className="text-blue-600 hover:text-blue-800"> foyles bookshops </a>
+                    or
+                    <a href="https://www.amazon.com/Introduction-Probability-Statistics-Foundations-Data-Based/dp/3031378644/" className="text-blue-600 hover:text-blue-800"> Amazon.com </a>
+                    or
+                    <a href="https://www.amazon.co.uk/Introduction-Probability-Statistics-Foundations-Data-Based/dp/3031378644/" className="text-blue-600 hover:text-blue-800"> Amazon.co.uk </a>
+                    in the UK. The book is based on my lecture notes for many courses (modules), for example, Introduction to Probability and Statistics, taught to first and second year students in various BSc in Mathematics degree programmes.
                     Here is a preview pdf file. You may be able to access the book in various different formats through your own institution.
                   </p>
                 )}
 
                 <BookFeatureList features={book.keyFeatures} />
+
+                {bookId === 'bookbmstdr' && (
+                  <div className="mt-8 mb-12">
+                    <p className="text-gray-700 text-lg leading-relaxed">
+                      This book is designed to make spatio-temporal modeling and analysis accessible and understandable to a wide audience from bachelors, masters and PhD students to researchers, from mathematicians and statisticians to practitioners in applied sciences. By avoiding hard core mathematics and calculus, this book aims to be a bridge that removes the statistical knowledge gap from among the applied scientists.
+                    </p>
+                  </div>
+                )}
+
+                {bookId === 'bookbmstdr' && (
+                  <div className="mt-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {[
+                        'empty_frame_LA_regions.png',
+                        'london_poverty.png',
+                        'maternfields.png',
+                        'met_adjusted_4thmax_99_05.png',
+                        'space_trend_longhurst.png',
+                        'temp_deep.png',
+                        'trend_wshed05-15_sd.png',
+                        'uscancer_rate.png',
+                        'v2_smr_england_07-11.png'
+                      ].map((image) => (
+                        <div key={image} className="relative group overflow-hidden rounded-lg shadow-lg">
+                          <img
+                            src={`/bookbmstdr/${image}`}
+                            alt={image.replace('.png', '').split('_').join(' ')}
+                            className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <p className="text-white text-center px-4 text-sm">
+                              {image.replace('.png', '').split('_').join(' ')}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {bookId === 'bookbmstdr' && (
+                  <div className="mt-12">
+                    <ul className="space-y-8">
+                      <li>
+                        <h5 id="chapter-1" className="text-xl font-semibold mb-2">
+                          <a href="/bookbmstdr/chap1/" className="text-blue-600 hover:text-blue-800">Chapter 1</a>
+                        </h5>
+                        <p className="text-gray-700">Chapter 1 introduces the main data sets analyzed in this book. The example data sets are categorized in two broad types: point referenced data and areal unit data. The examples of the first type includes air pollution data from the state of New York, England and Wales and also a sub region in the Eastern United States east of the Mississippi river.</p>
+                      </li>
+                      <li>
+                        <h5 id="chapter-2" className="text-xl font-semibold mb-2">
+                          <a href="/bookbmstdr/chap2/" className="text-blue-600 hover:text-blue-800">Chapter 2</a>
+                        </h5>
+                        <p className="text-gray-700">This chapter introduces the main keywords and concepts we often encounter in spatial and spatio-temporal modeling. Written from a beginner reader's point of view, it explains the basic concepts of stochastic processes, stationarity, variogram, isotropy, Matern covariance function, Gaussian Processes, space-time covariance function, Kriging, auto-correlation, Moran's I and Geary's C, internal and external standardization, spatial smoothers, CAR models and point processes.</p>
+                      </li>
+                      <li>
+                        <h5 id="chapter-3" className="text-xl font-semibold mb-2">
+                          <a href="/bookbmstdr/chap3/" className="text-blue-600 hover:text-blue-800">Chapter 3</a>
+                        </h5>
+                        <p className="text-gray-700">This chapter emphasizes the need to carry out Exploratory Data Analysis (EDA) before embarking on any modeling endeavor. EDA techniques introduced include non-spatial techniques such as histogram, pairwise scatter plots; spatial methods such as variogram and Kriging; and temporal exploration such as time series plots.</p>
+                      </li>
+                      <li>
+                        <h5 id="chapter-4" className="text-xl font-semibold mb-2">
+                          <a href="/bookbmstdr/chap4/" className="text-blue-600 hover:text-blue-800">Chapter 4</a>
+                        </h5>
+                        <p className="text-gray-700">Presented in a stand alone fashion, this chapter describes the main ideas of Bayesian inference needed in the rest of the book. Starting from the Bayes theorem in probability it discusses prior and posterior distributions, point and interval estimation, prior and posterior predictive distribution for model checking, hypothesis testing and Bayesian model choice statistics such as the Deviance Information Criteria (DIC) and Watanabe Information Criteria (WAIC).</p>
+                      </li>
+                      <li>
+                        <h5 id="chapter-5" className="text-xl font-semibold mb-2">
+                          <a href="/bookbmstdr/chap5/" className="text-blue-600 hover:text-blue-800">Chapter 5</a>
+                        </h5>
+                        <p className="text-gray-700">This chapter introduces the underlying concepts behind the powerful and popular computation methods used to make Bayesian inference for complex but parametric modeling problems. Presented with two simple running examples the chapter defines the methods of Monte Carlo, importance sampling, rejection sampling, Markov chain, Metropolis-Hastings algorithm, Gibbs sampler, Hamiltonian Monte Carlo and integrated nested Laplace approximation.</p>
+                      </li>
+                      <li>
+                        <h5 id="chapter-6" className="text-xl font-semibold mb-2">
+                          <a href="/bookbmstdr/chap6/" className="text-blue-600 hover:text-blue-800">Chapter 6</a>
+                        </h5>
+                        <p className="text-gray-700">This chapter introduces the general topic of practical Bayesian modeling and discusses its advantages over procedure based methods. The chapter discusses theoretical results for a simple linear regression model and also for a spatial model with known correlation parameter for point referenced data.</p>
+                      </li>
+                      <li>
+                        <h5 id="chapter-7" className="text-xl font-semibold mb-2">
+                          <a href="/bookbmstdr/chap7/" className="text-blue-600 hover:text-blue-800">Chapter 7</a>
+                        </h5>
+                        <p className="text-gray-700">This is the main methodological chapter which discusses spatio-temporal modeling for point referenced continuous data. As in the preceding chapter it obtains exact theoretical results for a simple separable spatio-temporal model which serves as the base line for model comparison purposes.</p>
+                      </li>
+                      <li>
+                        <h5 id="chapter-8" className="text-xl font-semibold mb-2">
+                          <a href="/bookbmstdr/chap8/" className="text-blue-600 hover:text-blue-800">Chapter 8</a>
+                        </h5>
+                        <p className="text-gray-700">This chapter showcases spatio-temporal modeling for point referenced data using five practical examples. The examples highlight the practical use of such modeling and extend the methodologies where necessary. The examples build on the basic concepts introduced in the earlier chapters, especially the previous chapter, on spatio-temporal modeling.</p>
+                      </li>
+                      <li>
+                        <h5 id="chapter-9" className="text-xl font-semibold mb-2">
+                          <a href="/bookbmstdr/chap9/" className="text-blue-600 hover:text-blue-800">Chapter 9</a>
+                        </h5>
+                        <p className="text-gray-700">The topic of forecasting is discussed in this chapter. Several easy to use and scalable forecasting methods are presented for Gaussian data. The first of these is an exact Bayesian method based on the separable spatio-temporal model discussed in Chapter 7.</p>
+                      </li>
+                      <li>
+                        <h5 id="chapter-10" className="text-xl font-semibold mb-2">
+                          <a href="/bookbmstdr/chap10/" className="text-blue-600 hover:text-blue-800">Chapter 10</a>
+                        </h5>
+                        <p className="text-gray-700">This chapter discusses Bayesian models for both areal and temporal areal data. As areal unit data are often discrete counts, this chapter first provides a gentle introduction to the generalized linear models (GLM).</p>
+                      </li>
+                      <li>
+                        <h5 id="chapter-11" className="text-xl font-semibold mb-2">
+                          <a href="/bookbmstdr/chap11/" className="text-blue-600 hover:text-blue-800">Chapter 11</a>
+                        </h5>
+                        <p className="text-gray-700">Parallel to Chapter 8, this chapter showcases four examples of areal and temporal areal unit data sets. Click the links below to see the R-code for the examples. Assessing childhood vaccination coverage in Kenya, assessing trend in cancer rates in the USA, localized modeling of hospitalization data from England, and assessing trend in child poverty in London. All the model fitting is done using the Bcartime model fitting function in the bmstdr package.</p>
+                      </li>
+                      <li>
+                        <h5 id="chapter-12" className="text-xl font-semibold mb-2">
+                          <a href="/bookbmstdr/chap12/" className="text-blue-600 hover:text-blue-800">Chapter 12</a>
+                        </h5>
+                        <p className="text-gray-700">This chapter aims to present GP based models for machine learning showing an immediate connection between the GP based regression models presented in the earlier chapters. The chapter highlights the equivalent correspondences between the different terminologies used in the fields of mainstream statistics and data science.</p>
+                      </li>
+                    </ul>
+                  </div>
+                )}
 
                 {bookId === 'bookipsrdbs' && (
                   <div className="mt-12">

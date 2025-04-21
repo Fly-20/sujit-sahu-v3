@@ -71,13 +71,12 @@ export const books: Record<string, Book> = {
       { title: '12. Gaussian processes for data science and other applications' }
     ],
     keyFeatures: [
-      "Accessible detailed discussion of Bayesian methods and computations with worked examples, numerical illustrations and exercises for hands-on experience",
-      "A spatial statistics jargon buster chapter for building vocabulary without getting overwhelmed by technical complexities",
-      "Computation and modeling using the dedicated R package bmstdr, with familiar syntax similar to the lm command, plus integration with rstan, INLA, spBayes, spTimer, spTDyn, CARBayes and CARBayesST",
-      "Detailed R code notes and online supplement with data and full code for reproducing all tables and figures",
-      "Two dedicated chapters on practical spatio-temporal modeling of point referenced and areal unit data, with real data-driven examples from various disciplines",
-      "Focus on model validation using test/training splits following machine learning principles, with formal connection to Gaussian process based machine learning",
-      'Reproducible code examples'
+      "Accessible detailed discussion of a majority of all aspects of Bayesian methods and computations with worked examples, numerical illustrations and exercises with which the reader should be able to experience the methodologies live.",
+      "A spatial statistics jargon buster chapter that enables the reader to build up a vocabulary without getting clouded in modeling and technicalities in model fitting.",
+      "Computation and modeling illustrations are provided with the help of the dedicated R package bmstdr. The look and feel of the model fitting commands and their output resemble that of the lm command in R. A novice user, who is otherwise familiar with the lm command, will quickly be able to perform spatio-temporal modeling using well-known packages and platforms such rstan, INLA, spBayes, spTimer, spTDyn, CARBayes and CARBayesST.",
+      "Included are R code notes detailing the algorithms used to produce all the tables and figures. An online supplement presents the necessary data and the full code for reproducing these results.",
+      "Two dedicated chapters discuss practical examples of spatio-temporal modeling of point referenced and areal unit data. Taken from a variety of disciplines all illustrations are practical data driven rather than simulation based.",
+      "Throughout, the emphasis has been on validating models by splitting data into test and training sets following on the philosophy of machine learning and data science. The last chapter consolidates this connection formally by bringing in the Gaussian process based machine learning into the context of the topics presented in the book."
     ],
     imageUrl: '/book-bmstdr.jpg'
   }
