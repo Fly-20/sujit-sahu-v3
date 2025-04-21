@@ -22,6 +22,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <script async src="https://badge.dimensions.ai/badge.js" />
+      </head>
       <body className={`${inter.variable} font-sans antialiased min-h-screen`}>
         {children}
       </body>

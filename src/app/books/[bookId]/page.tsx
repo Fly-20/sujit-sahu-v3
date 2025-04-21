@@ -54,11 +54,57 @@ export default function BookPage({ params }: { params: { bookId: string } }) {
                 <h1 className="text-3xl font-bold text-gray-900 mb-4">
                   {book.fullTitle}
                 </h1>
-                <p className="text-gray-600 mb-6 text-lg">
-                  It is now possible to order this book from Waterstones, or Barnes & Noble, or foyles bookshops or Amazon.com or Amazon.co.uk in the UK.
-                  The book is based on my lecture notes for many courses (modules), for example, Introduction to Probability and Statistics, taught to first and second year students in various BSc in Mathematics degree programmes.
-                  Here is a preview pdf file. You may be able to access the book in various different formats through your own institution.
-                </p>
+                {bookId === 'bookbmstdr' ? (
+                  <div className="text-gray-600 mb-6 space-y-6">
+                    <ul className="list-none space-y-8">
+                      <li>
+                        <b>Here is a preview</b> <a href="https://www.soton.ac.uk/~sks/bmbook/preview.pdf" className="text-blue-600 hover:text-blue-800">pdf file.</a> <b>Available for purchase in paperback and other formats from</b> <a href="https://www.routledge.com/Bayesian-Modeling-of-Spatio-Temporal-Data-with-R/Sahu/p/book/9780367277987" className="text-blue-600 hover:text-blue-800">Routledge</a> or <a href="https://www.amazon.com/Bayesian-Modeling-Spatio-Temporal-Data-Interdisciplinary-Statistics-ebook/dp/B09PNML5F7/" className="text-blue-600 hover:text-blue-800">Amazon.com.</a>
+                      </li>
+                      <li>
+                        <div className="dimensions-badge" data-doi="10.1201/9780429318443"></div>
+                        <p><a href="https://badge.dimensions.ai/details/id/pub.1144241223" className="text-blue-600 hover:text-blue-800">Dimensions badge (citation counts and impact).</a></p>
+                      </li>
+                      <li>
+                        <b>Reviews:</b>
+                        <ul className="list-disc pl-6 mt-2 space-y-4">
+                          <li>
+                            <a href="https://www.statistics.utoronto.ca/people/directories/all-faculty/patrick-brown" className="text-blue-600 hover:text-blue-800">Prof Patrick Brown's</a> review as published in the journal <i>Spatial Statistics.</i> "Sujit Sahu has been prolific at writing papers and creating R packages for spatio-temporal modelling. ... The book's greatest contribution is providing useable and stable methods (and software) for fitting spatio-temporal models, these tools provide useful solution to a range of problems. ..." <a href="spasta_review.pdf" className="text-blue-600 hover:text-blue-800">Read the full review here.</a>
+                          </li>
+                          <li>
+                            <b>Prof Peter Diggle</b> "This book is a fine addition to the literature on linear modelling of spatio-temporal data, both geostatistical and areal unit; the linkage to the author's R package bmstdr is particularly useful."
+                          </li>
+                          <li>
+                            <b>Prof Sir David Spiegelhalter</b> on Twitter: <a href="https://twitter.com/d_spiegel/status/1494272959506264068" className="text-blue-600 hover:text-blue-800">I've seen this, and it looks excellent. And with Covid examples!</a>
+                          </li>
+                          <li>
+                            <b>Prof Alan Gelfand</b> "... it emphasizes modeling in building bridges to the practitioner's application is one of its strongest virtues...." <a href="https://www.routledge.com/Bayesian-Modeling-of-Spatio-Temporal-Data-with-R/Sahu/p/book/9780367277987" className="text-blue-600 hover:text-blue-800">Read more at Routledge</a>
+                          </li>
+                          <li>
+                            <b>Prof Giovanna Jona Lasinio</b> "This book fills an essential gap in the literature about spatial-temporal data modelling...." <a href="https://www.routledge.com/Bayesian-Modeling-of-Spatio-Temporal-Data-with-R/Sahu/p/book/9780367277987" className="text-blue-600 hover:text-blue-800">Read more at Routledge</a>
+                          </li>
+                          <li>
+                            <b>Prof Duncan Lee</b> "This book is an invaluable guide to statisticians and non-statisticians alike who are new to spatio-temporal modelling, ..." <a href="https://www.routledge.com/Bayesian-Modeling-of-Spatio-Temporal-Data-with-R/Sahu/p/book/9780367277987" className="text-blue-600 hover:text-blue-800">Read more at Routledge</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <b>Citation:</b> Sahu, S.K. (2022). Bayesian Modeling of Spatio-Temporal Data with R (1st ed.). Chapman and Hall/CRC. <a href="https://doi.org/10.1201/9780429318443" className="text-blue-600 hover:text-blue-800">https://doi.org/10.1201/9780429318443.</a>
+                      </li>
+                      <li>
+                        <b>R package</b> Sahu, S. K. (2021) <a href="/bmbook/bmstdr-vig_version" className="text-blue-600 hover:text-blue-800">bmstdr: Bayesian Modeling of Spatio-Temporal Data with R.</a> Available from https://github.com/sujit-sahu/bmstdr/ and <a href="https://CRAN.R-project.org/package=bmstdr" className="text-blue-600 hover:text-blue-800">CRAN</a>
+                        <p className="mt-2">
+                          <a href="/#bmstdr" className="text-blue-600 hover:text-blue-800">This is the companion R package. Please click here for download and installation information.</a>
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                ) : (
+                  <p className="text-gray-600 mb-6 text-lg">
+                    It is now possible to order this book from Waterstones, or Barnes & Noble, or foyles bookshops or Amazon.com or Amazon.co.uk in the UK.
+                    The book is based on my lecture notes for many courses (modules), for example, Introduction to Probability and Statistics, taught to first and second year students in various BSc in Mathematics degree programmes.
+                    Here is a preview pdf file. You may be able to access the book in various different formats through your own institution.
+                  </p>
+                )}
 
                 <BookFeatureList features={book.keyFeatures} />
 
