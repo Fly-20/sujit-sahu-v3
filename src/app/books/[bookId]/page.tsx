@@ -54,6 +54,28 @@ export default function BookPage({ params }: { params: { bookId: string } }) {
                 <h1 className="text-3xl font-bold text-gray-900 mb-4">
                   {book.fullTitle}
                 </h1>
+                {bookId === 'bookbmstdr' && (
+                  <div className="mb-8 flex justify-center items-center">
+                    <img
+                      src="/cover_bmstdr.png"
+                      alt="Bayesian modeling of spatio-temporal data with R Book Cover"
+                      className="w-1/3 h-auto rounded-lg shadow-lg"
+                      width={450}
+                      height={300}
+                    />
+                  </div>
+                )}
+                {bookId === 'bookipsrdbs' && (
+                  <div className="mb-8 flex justify-center items-center">
+                    <img
+                      src="/cover_ipsRdbs.png"
+                      alt="Introduction to Probability, Statistics & R Book Cover"
+                      className="w-1/3 h-auto rounded-lg shadow-lg"
+                      width={450}
+                      height={300}
+                    />
+                  </div>
+                )}
                 {bookId === 'bookbmstdr' ? (
                   <div className="text-gray-600 mb-6 space-y-6">
                     <ul className="list-none space-y-8">
