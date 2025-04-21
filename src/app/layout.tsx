@@ -9,6 +9,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Prof Sujit Sahu - Statistics and Data Science",
+  icons: {
+    icon: "/favicon.png"
+  },
   description: "Professor of Statistics at the University of Southampton. Author of books on Statistics, Probability, and R Programming.",
 };
 

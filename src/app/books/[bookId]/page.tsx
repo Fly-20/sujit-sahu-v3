@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Layout from '@/components/layout/Layout';
@@ -16,9 +15,9 @@ export default function BookPage({ params }: { params: { bookId: string } }) {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <nav className="mb-8">
+          <nav className="mb-4">
             <Link
               href="/"
               className="text-blue-600 hover:text-blue-800 flex items-center gap-2"
@@ -50,7 +49,9 @@ export default function BookPage({ params }: { params: { bookId: string } }) {
                   {book.fullTitle}
                 </h1>
                 <p className="text-gray-600 mb-6 text-lg">
-                  {book.longDescription}
+                  It is now possible to order this book from Waterstones, or Barnes & Noble, or foyles bookshops or Amazon.com or Amazon.co.uk in the UK.
+                  The book is based on my lecture notes for many courses (modules), for example, Introduction to Probability and Statistics, taught to first and second year students in various BSc in Mathematics degree programmes.
+                  Here is a preview pdf file. You may be able to access the book in various different formats through your own institution.
                 </p>
 
                 <BookFeatureList features={book.keyFeatures} />

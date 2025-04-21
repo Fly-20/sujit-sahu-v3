@@ -1,6 +1,6 @@
 export interface Chapter {
   title: string;
-  description: string;
+  description?: string;
 }
 
 export interface Book {
@@ -16,53 +16,58 @@ export interface Book {
 export const books: Record<string, Book> = {
   'bookipsrdbs': {
     title: 'Introduction to Probability, Statistics and R',
-    fullTitle: 'Introduction to Probability, Statistics and R with Data-Based Simulations',
+    fullTitle: 'Introduction to Probability, Statistics and R',
     description: `A comprehensive guide to probability, statistics, and R programming, designed for students and practitioners. This book provides a solid foundation in statistical concepts while teaching practical implementation using R.`,
-    longDescription: `This textbook offers a unique blend of theoretical foundations and practical applications in probability, statistics, and R programming. It is designed to help students and practitioners develop a deep understanding of statistical concepts while simultaneously building hands-on skills in data analysis and visualization using R.`,
+    longDescription: `It is now possible to order this book from Waterstones, or Barnes & Noble, or foyles bookshops or Amazon.com or Amazon.co.uk in the UK. The book is based on my lecture notes for many courses (modules), for example, Introduction to Probability and Statistics, taught to first and second year students in various BSc in Mathematics degree programmes. Here is a preview pdf file. You may be able to access the book in various different formats through your own institution.`,
     chapters: [
-      { title: '1. Introduction', description: 'Overview of probability, statistics, and R programming' },
-      { title: '2. Probability Basics', description: 'Fundamental concepts of probability theory' },
-      { title: '3. Random Variables', description: 'Discrete and continuous random variables' },
-      { title: '4. Probability Distributions', description: 'Common probability distributions and their properties' },
-      { title: '5. Introduction to R', description: 'Getting started with R programming' },
-      { title: '6. Data Structures in R', description: 'Vectors, matrices, data frames, and lists' },
-      { title: '7. Data Manipulation', description: 'Data cleaning, transformation, and preprocessing' },
-      { title: '8. Descriptive Statistics', description: 'Measures of central tendency and dispersion' },
-      { title: '9. Data Visualization', description: 'Creating effective plots and graphs with R' },
-      { title: '10. Sampling Theory', description: 'Random sampling and sampling distributions' },
-      { title: '11. Point Estimation', description: 'Methods for parameter estimation' },
-      { title: '12. Confidence Intervals', description: 'Interval estimation and interpretation' },
-      { title: '13. Hypothesis Testing', description: 'Statistical inference and decision making' },
-      { title: '14. Linear Regression', description: 'Simple linear regression models' },
-      { title: '15. Multiple Regression', description: 'Multiple predictor variables and model selection' },
-      { title: '16. ANOVA', description: 'Analysis of variance and experimental design' },
-      { title: '17. Time Series Analysis', description: 'Working with temporal data in R' },
-      { title: '18. Statistical Learning', description: 'Introduction to machine learning concepts' },
-      { title: '19. Advanced Topics', description: 'Selected advanced statistical methods' }
+      { title: '1. Introduction to Basic Statistics' },
+      { title: '2. Getting Started with R' },
+      { title: '3. Introduction to Probability' },
+      { title: '4. Conditional Probability and Independence' },
+      { title: '5. Random Variables and Their Probability Distributions' },
+      { title: '6. Standard Discrete Distributions' },
+      { title: '7. Standard Continuous Distributions' },
+      { title: '8. Joint Distributions and the CLT' },
+      { title: '9. Introduction to Statistical Inference' },
+      { title: '10. Methods of Point Estimation' },
+      { title: '11. Interval Estimation' },
+      { title: '12. Hypothesis Testing' },
+      { title: '13. Generating Functions' },
+      { title: '14. Transformation and Transformed Distributions' },
+      { title: '15. Multivariate Distributions' },
+      { title: '16. Convergence of Estimators' },
+      { title: '17. Simple Linear Regression Model' },
+      { title: '18. Multiple Linear Regression Model' },
+      { title: '19. Analysis of Variance' }
     ],
     keyFeatures: [
-      'Clear explanations of probability theory fundamentals',
-      'Step-by-step guide to statistical inference and hypothesis testing',
-      'Hands-on introduction to R programming with practical examples',
-      'Modern data visualization techniques and best practices',
-      'Extensive exercises with real-world datasets',
-      'Interactive simulations for better understanding',
-      'Complete R code examples and solutions'
+      'This is an accessible textbook that engages the reader with many practical examples using probability and statistics for data science and machine learning.',
+      'The book provides a comprehensive coverage of topics in probability, and both applied and mathematical statistics.',
+      'The topics discussed in the book cover the syllabus for the 2023 Actuarial Statistics 1 examination administered by the Institute and Faculty of Actuaries in London.',
+      'R, a popular statistical computing software package, is introduced from scratch and illustrated with many practical data sets. For example, see the R Getting Started page or the package vignette.',
+      'The book comes with its own dedicated R package ipsRdbs, available from CRAN. Once inside R and with the package installed, just asking for help for any data set included in the package will produce all the code required to reproduce the results and analysis presented in the book for that data set. Hence, a beginner reader can reproduce all those results without having to first learn all the commands and their exact syntax in R. This makes it seamless to learn, use and apply practical methods in introductory probability, statistics and beyond.',
+      'The textbook also contains many theoretical and applied exercises for readers and instructors.'
     ],
     imageUrl: '/book-ipsrdbs.jpg'
   },
   'bookbmstdr': {
-    title: 'Bayesian Modeling of Spatio-Temporal Data with R',
-    fullTitle: 'Bayesian Modeling of Spatio-Temporal Data with R',
-    description: `Advanced techniques for modeling and analyzing spatio-temporal data using Bayesian methods and R. This book covers cutting-edge methods for handling complex spatial and temporal data structures.`,
-    longDescription: `This advanced textbook presents modern Bayesian approaches to modeling and analyzing spatio-temporal data. It provides a comprehensive treatment of both theoretical foundations and practical implementations using R, with a focus on real-world applications in environmental science, epidemiology, and other fields.`,
+    title: 'Bayesian Modelling of Spatio-Temporal Data with R',
+    fullTitle: 'Bayesian Modelling of Spatio-Temporal Data with R',
+    description: `A comprehensive guide to Bayesian methods for analyzing spatial and temporal data using R. This book covers both theoretical foundations and practical applications.`,
+    longDescription: `This textbook provides an in-depth exploration of Bayesian statistical methods for analyzing spatial and temporal data. It combines rigorous theoretical foundations with practical applications and case studies, all implemented in R.`,
     chapters: [
-      { title: 'Introduction to Spatial Statistics', description: 'Fundamental concepts in spatial data analysis' },
-      { title: 'Bayesian Inference', description: 'Principles of Bayesian statistics and computation' },
-      { title: 'Spatial Models', description: 'Gaussian processes and spatial correlation structures' },
-      { title: 'Temporal Models', description: 'Time series analysis and dynamic models' },
-      { title: 'Spatio-Temporal Models', description: 'Combined spatial and temporal modeling approaches' },
-      { title: 'Advanced Applications', description: 'Case studies in environmental and health sciences' }
+      { title: '1. Examples of spatio-temporal data' },
+      { title: '2. Jargon of spatial and spatio-temporal modeling' },
+      { title: '3. Exploratory data analysis methods' },
+      { title: '4. Bayesian inference methods' },
+      { title: '5. Bayesian computation methods' },
+      { title: '6. Bayesian modeling for point referenced spatial data' },
+      { title: '7. Bayesian modeling for point referenced spatio-temporal data' },
+      { title: '8. Practical examples of point referenced data modeling' },
+      { title: '9. Bayesian forecasting for point referenced data' },
+      { title: '10. Bayesian modeling for areal unit data' },
+      { title: '11. Further examples of areal data modeling' },
+      { title: '12. Gaussian processes for data science and other applications' }
     ],
     keyFeatures: [
       'In-depth coverage of Bayesian statistical methods',

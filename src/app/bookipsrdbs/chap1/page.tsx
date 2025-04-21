@@ -1,32 +1,57 @@
 import ChapterLayout from '@/components/books/ChapterLayout';
+import Image from 'next/image';
 
 export default function Chapter1() {
   return (
     <ChapterLayout bookId="bookipsrdbs" chapterNumber={1}>
-      <h2 className="text-xl font-semibold text-gray-800 mt-8 mb-4">
-        Overview
-      </h2>
-      
       <p className="text-gray-600 mb-6">
-        This chapter provides a comprehensive introduction to the fundamental concepts
-        of probability, statistics, and R programming. We begin by exploring the basic
-        principles of probability theory and its applications in real-world scenarios.
-        Then, we introduce statistical concepts and their importance in data analysis.
-        Finally, we get started with R programming, setting up our development
-        environment and writing our first lines of code.
+      This chapter introduces basic statistics such as the mean, median and mode and standard deviation. It also provides introduction to many motivating data sets which are used as running examples throughout the book. An accessible discussion is also provided to debate issues like: "Lies, damned lies and statistics" and "Figures don't lie but liars can figure."
       </p>
+      
+      <div className="my-0 sm:my-8 flex flex-col md:flex-row md:flex-wrap gap-4 md:gap-8 not-prose">
+        <Image
+          src="/bookipsrdbs/chap1images/athletes.jpg"
+          alt="athletes.jpg"
+          width={400}
+          height={250}
+          style={{ height: '250px', width: 'auto', objectFit: 'contain' }}
+          className="rounded-lg"
+        />
+        <Image
+          src="/bookipsrdbs/chap1images/cfailbox.png"
+          alt="cfailbox.png"
+          width={400}
+          height={250}
+          style={{ height: '250px', width: 'auto', objectFit: 'contain' }}
+          className="rounded-lg"
+        />
+        <Image
+          src="/bookipsrdbs/chap1images/mediansqueeze.png"
+          alt="mediansqueeze.png"
+          width={400}
+          height={250}
+          style={{ height: '250px', width: 'auto', objectFit: 'contain' }}
+          className="rounded-lg"
+        />
+        <Image
+          src="/bookipsrdbs/chap1images/orderstats.png"
+          alt="orderstats.png"
+          width={400}
+          height={250}
+          style={{ height: '250px', width: 'auto', objectFit: 'contain' }}
+          className="rounded-lg"
+        />
+        <Image
+          src="/bookipsrdbs/chap1images/shipman_colour.png"
+          alt="shipman_colour.png"
+          width={400}
+          height={250}
+          style={{ height: '250px', width: 'auto', objectFit: 'contain' }}
+          className="rounded-lg"
+        />
+      </div>
 
-      <h2 className="text-xl font-semibold text-gray-800 mt-8 mb-4">
-        Learning Objectives
-      </h2>
 
-      <ul className="list-disc pl-6 text-gray-600 space-y-2">
-        <li>Understand the basic concepts of probability theory</li>
-        <li>Learn the fundamentals of statistical analysis</li>
-        <li>Set up R development environment</li>
-        <li>Write and execute basic R commands</li>
-        <li>Explore R's built-in datasets and basic functions</li>
-      </ul>
     </ChapterLayout>
   );
 }

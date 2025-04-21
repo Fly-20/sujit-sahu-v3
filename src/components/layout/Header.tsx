@@ -1,45 +1,50 @@
 'use client';
 
-import Link from 'next/link';
 import { useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 interface NavItem {
   name: string;
   href: string;
 }
 
+const navigation: NavItem[] = [
+  { name: 'Home', href: '/' },
+  { name: 'Experience', href: '/#experience' },
+  { name: 'Publications', href: '/publications' },
+  { name: 'Book ipsRdbs', href: '/books/bookipsrdbs' },
+  { name: 'Book Bmstdr', href: '/books/bookbmstdr' },
+  { name: 'R package bmstdr', href: '/#bmstdr' },
+  { name: 'Projects', href: '/projects' },
+  { name: 'Student Reviews', href: '/#reviews' },
+  { name: 'Contact', href: '/#contact' }
+];
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
-  const navigation: NavItem[] = [
-    { name: 'Home', href: '/' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Publications', href: '#publications' },
-    { name: 'Book ipsRdbs', href: '/books/bookipsrdbs' },
-    { name: 'Book Bmstdr', href: '/books/bookbmstdr' },
-    { name: 'R package bmstdr', href: '#bmstdr' },
-    { name: 'Projects', href: '/projects' },
-    { name: 'Student Reviews', href: '#reviews' },
-    { name: 'Contact', href: '#contact' }
-  ];
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === href;
+    return pathname.startsWith(href);
+  };
 
   return (
     <header className="fixed w-full bg-white shadow-sm z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
-          <div className="flex">
-            <Link href="/" className="flex items-center">
-              <span className="text-xl font-bold">Prof Sujit Sahu</span>
-            </Link>
-          </div>
+          <Link href="/" className="flex items-center hover:text-blue-600 transition-colors">
+            <span className="text-xl font-bold">Prof Sujit Sahu</span>
+          </Link>
           
           {/* Desktop navigation */}
-          <div className="hidden sm:flex sm:items-center space-x-6">
+          <div className="hidden sm:flex sm:items-center space-x-2">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="px-2 py-2 text-gray-700 hover:text-blue-600"
+                className={`px-1.5 py-2 transition-colors ${isActive(item.href) ? 'text-blue-600 font-medium' : 'text-gray-700 hover:text-blue-600'}`}
               >
                 {item.name}
               </Link>

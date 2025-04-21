@@ -24,7 +24,13 @@ export default function BookFeatureList({ features }: BookFeatureListProps) {
                 d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            <span className="text-gray-600">{feature}</span>
+            <span className="text-gray-600" dangerouslySetInnerHTML={{ __html: feature.replace(
+              /(https?:\/\/[^\s]+)/g,
+              '<a href="$1" class="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener noreferrer">$1</a>'
+            ).replace(
+              /(\/[^\s]+)/g,
+              '<a href="$1" class="text-blue-600 hover:text-blue-800">$1</a>'
+            ) }} />
           </li>
         ))}
       </ul>

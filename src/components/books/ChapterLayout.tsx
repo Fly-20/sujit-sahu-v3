@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
 import TableOfContents from './TableOfContents';
@@ -11,12 +14,17 @@ interface ChapterLayoutProps {
 
 export default function ChapterLayout({ bookId, chapterNumber, children }: ChapterLayoutProps) {
   const book = books[bookId];
+  
+  if (!book) {
+    return <div>Book not found</div>;
+  }
+  
   const chapter = book.chapters[chapterNumber - 1];
   const nextChapter = book.chapters[chapterNumber];
 
   return (
     <Layout>
-      <div className="min-h-screen bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <nav className="mb-8 flex items-center space-x-4">
             <Link
@@ -49,7 +57,15 @@ export default function ChapterLayout({ bookId, chapterNumber, children }: Chapt
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Left sidebar with Table of Contents */}
             <div className="lg:w-1/4">
-              <TableOfContents chapters={book.chapters} bookId={bookId} />
+              {/* Desktop Table of Contents */}
+              <div className="hidden lg:block">
+                <TableOfContents chapters={book.chapters} bookId={bookId} />
+              </div>
+
+              {/* Mobile Table of Contents Dropdown */}
+              <div className="lg:hidden">
+                <TableOfContents chapters={book.chapters} bookId={bookId} isMobile={true} />
+              </div>
             </div>
 
             {/* Main content */}
