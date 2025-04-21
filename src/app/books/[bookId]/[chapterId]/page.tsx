@@ -5,6 +5,26 @@ import { books } from '@/data/books';
 import { remark } from 'remark';
 import html from 'remark-html';
 
+type StaticParam = {
+  bookId: string;
+  chapterId: string;
+};
+
+export function generateStaticParams(): StaticParam[] {
+  const params: StaticParam[] = [];
+  
+  for (const [bookId, book] of Object.entries(books)) {
+    book.chapters.forEach((_, index) => {
+      params.push({
+        bookId,
+        chapterId: (index + 1).toString(),
+      });
+    });
+  }
+  
+  return params;
+}
+
 interface ChapterPageProps {
   params: {
     bookId: string;
