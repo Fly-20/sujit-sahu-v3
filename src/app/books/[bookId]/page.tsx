@@ -61,6 +61,32 @@ export default function BookPage({ params }: { params: { bookId: string } }) {
                 </p>
 
                 <BookFeatureList features={book.keyFeatures} />
+
+                {bookId === 'bookipsrdbs' && (
+                  <div className="mt-12">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-6">Book Images and Illustrations</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {[
+                        'college2.jpg',
+                        'gamma_density.png',
+                        'Lion_cub.jpg',
+                        'mediansqueeze.png',
+                        'n2contours2.png',
+                        'possum.jpg',
+                        'puffin_scotland.jpg',
+                        'rv_mapping.png'
+                      ].map((image) => (
+                        <div key={image} className="relative aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                          <img
+                            src={`/bookipsrdbs/${image}`}
+                            alt={image.split('.')[0].replace(/_/g, ' ')}
+                            className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
