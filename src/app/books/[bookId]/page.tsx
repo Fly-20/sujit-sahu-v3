@@ -97,6 +97,18 @@ export default function BookPage({ params }: { params: { bookId: string } }) {
                         </p>
                       </li>
                     </ul>
+
+                    <div className="mt-12">
+                      <h2 className="text-2xl font-bold text-gray-900 mb-6">Book Description</h2>
+                      <div className="space-y-4 text-gray-700">
+                        <p>
+                          Applied sciences, both physical and social, such as atmospheric, biological, climate, demographic, economic, ecological, environmental, oceanic and political, routinely gather large volumes of spatial and spatio-temporal data in order to make wide ranging inference and prediction. Ideally such inferential tasks should be approached through modeling as modeling automatically aids in estimation of uncertainties in all conclusions drawn from such data. Unified Bayesian modeling, implemented through user friendly software packages, provides a crucial key to unlocking the full power of these methods for solving challenging practical problems.
+                        </p>
+                        <p>
+                          Keeping the applied scientists in mind, this book presents most of the modeling with the help of R commands written in a purposefully developed R package to facilitate spatio-temporal modeling. However, the presentation in the book does not lose sight of mathematical and statistical rigor as it presents the underlying theories of Bayesian inference and computation in stand alone chapters in the first part which would be appealing to mathematics/statistics major final year undergraduate or post-graduate students who are in search of such modeling.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 ) : (
                   <p className="text-gray-600 mb-6 text-lg">
