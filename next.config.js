@@ -15,10 +15,6 @@ const nextConfig = {
     // Generate a unique build ID based on timestamp
     return `build-${Date.now()}`
   },
-  experimental: {
-    // Enable if you need streaming features
-    serverActions: true,
-  },
 }
 
 module.exports = nextConfig
