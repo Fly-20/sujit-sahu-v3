@@ -71,12 +71,12 @@ export const books: Record<string, Book> = {
       { title: '12. Gaussian processes for data science and other applications' }
     ],
     keyFeatures: [
-      'In-depth coverage of Bayesian statistical methods',
-      'Advanced spatial and temporal data analysis techniques',
-      'Hierarchical modeling frameworks',
-      'Efficient MCMC algorithms and implementation',
-      'Integration with R-INLA and Stan',
-      'Real-world case studies and applications',
+      "Accessible detailed discussion of Bayesian methods and computations with worked examples, numerical illustrations and exercises for hands-on experience",
+      "A spatial statistics jargon buster chapter for building vocabulary without getting overwhelmed by technical complexities",
+      "Computation and modeling using the dedicated R package bmstdr, with familiar syntax similar to the lm command, plus integration with rstan, INLA, spBayes, spTimer, spTDyn, CARBayes and CARBayesST",
+      "Detailed R code notes and online supplement with data and full code for reproducing all tables and figures",
+      "Two dedicated chapters on practical spatio-temporal modeling of point referenced and areal unit data, with real data-driven examples from various disciplines",
+      "Focus on model validation using test/training splits following machine learning principles, with formal connection to Gaussian process based machine learning",
       'Reproducible code examples'
     ],
     imageUrl: '/book-bmstdr.jpg'
