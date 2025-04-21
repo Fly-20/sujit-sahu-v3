@@ -1,40 +1,44 @@
 import { NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
 import { books } from '@/data/books';
+
+export const dynamic = 'force-static';
+
+type StaticParam = {
+  bookId: string;
+  chapterId: string;
+};
+
+export async function generateStaticParams() {
+  const params: StaticParam[] = [];
+  for (const [bookId, book] of Object.entries(books)) {
+    book.chapters.forEach((chapter, index) => {
+      params.push({
+        bookId,
+        chapterId: (index + 1).toString(),
+      });
+    });
+  }
+  return params;
+}
 
 export async function GET(
   request: Request,
   { params }: { params: { bookId: string; chapterId: string } }
 ) {
   try {
-    // Validate book and chapter exist
-    const book = books[params.bookId];
-    if (!book) {
-      return NextResponse.json(
-        { error: 'Book not found' },
-        { status: 404 }
-      );
-    }
-
-    const chapterIndex = parseInt(params.chapterId) - 1;
-    const chapter = book.chapters[chapterIndex];
-    if (!chapter) {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_SITE_URL || ''}/data/chapters/${params.bookId}-${params.chapterId}.json`
+    );
+    
+    if (!response.ok) {
       return NextResponse.json(
         { error: 'Chapter not found' },
         { status: 404 }
       );
     }
 
-    // Read chapter content
-    const filePath = path.join(
-      process.cwd(),
-      'src/content/books',
-      params.bookId,
-      `chapter${params.chapterId}.md`
-    );
-    const content = await fs.readFile(filePath, 'utf8');
-    return NextResponse.json({ content });
+    const data = await response.json();
+    return NextResponse.json(data);
   } catch (error) {
     console.error('Error reading chapter:', error);
     return NextResponse.json(

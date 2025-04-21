@@ -1,6 +1,7 @@
 export interface Chapter {
   title: string;
   description?: string;
+  number?: number;
 }
 
 export interface Book {
