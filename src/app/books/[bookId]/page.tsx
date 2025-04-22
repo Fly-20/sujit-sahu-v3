@@ -80,7 +80,7 @@ export default function BookPage({ params }: { params: { bookId: string } }) {
                   <div className="text-gray-600 mb-6 space-y-6">
                     <ul className="list-none space-y-8">
                       <li>
-                        <b>Here is a preview</b> <a href="https://www.soton.ac.uk/~sks/bmbook/preview.pdf" className="text-blue-600 hover:text-blue-800">pdf file.</a> <b>Available for purchase in paperback and other formats from</b> <a href="https://www.routledge.com/Bayesian-Modeling-of-Spatio-Temporal-Data-with-R/Sahu/p/book/9780367277987" className="text-blue-600 hover:text-blue-800">Routledge</a> or <a href="https://www.amazon.com/Bayesian-Modeling-Spatio-Temporal-Data-Interdisciplinary-Statistics-ebook/dp/B09PNML5F7/" className="text-blue-600 hover:text-blue-800">Amazon.com.</a>
+                        <b>Here is a preview</b> <a href="https://www.soton.ac.uk/~sks/bmbook/preview.pdf" className="text-blue-600 hover:text-blue-800">pdf file.</a> <b>Available for purchase in paperback and other formats from</b> <a href="https://www.taylorfrancis.com/books/mono/10.1201/9780429318443/bayesian-modeling-spatio-temporal-data-sujit-sahu" className="text-blue-600 hover:text-blue-800">Taylor & Francis</a> or <a href="https://www.amazon.com/Bayesian-Modeling-Spatio-Temporal-Data-Interdisciplinary-Statistics-ebook/dp/B09PNML5F7/" className="text-blue-600 hover:text-blue-800">Amazon.com.</a>
                       </li>
                       <li>
                         <div className="dimensions-badge" data-doi="10.1201/9780429318443"></div>

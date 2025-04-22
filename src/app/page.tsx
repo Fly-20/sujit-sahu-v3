@@ -242,22 +242,22 @@ export default function Home() {
               {/* Post-graduate Supervision */}
               <div>
                 <h4 className="text-2xl font-semibold text-gray-900 mb-4">Post-graduate Supervision</h4>
-                <p className="text-lg text-gray-700">Here is a list of all my past post-docs, PhD and MSc students.</p>
+                <p className="text-lg text-gray-700"><Link href="/phdstudents" className="text-blue-600 hover:text-blue-800">Here is a list of all my past post-docs, PhD and MSc students.</Link></p>
               </div>
 
               {/* Research Grants */}
               <div>
                 <h4 className="text-2xl font-semibold text-gray-900 mb-4">Research Grants Obtained</h4>
                 <ul className="list-disc list-inside space-y-2 text-lg text-gray-700">
-                  <li>List of Research Grants.</li>
-                  <li>Air pollution estimates page.</li>
+                  <li><Link href="/grants" className="text-blue-600 hover:text-blue-800">List of Research Grants.</Link></li>
+                  <li><Link href="/pollution_estimates" className="text-blue-600 hover:text-blue-800">Air pollution estimates page.</Link></li>
                 </ul>
               </div>
 
               {/* Education */}
               <div>
                 <h4 className="text-2xl font-semibold text-gray-900 mb-4">Education and Experience</h4>
-                <p className="text-lg text-gray-700 mb-6">Educational Qualifications and Experience.</p>
+                <p className="text-lg text-gray-700 mb-6"><Link href="/education" className="text-blue-600 hover:text-blue-800">Educational Qualifications and Experience.</Link></p>
               </div>
 
               {/* Employment History */}

@@ -83,9 +83,9 @@ export default function TestimonialSlider() {
                     key={testimonial.id}
                     className="w-full flex-shrink-0 px-4"
                   >
-                    <h3 className="text-3xl font-semibold mb-6">
+                    <h2 className="text-3xl font-semibold mb-6">
                       {testimonial.name} ({testimonial.degree})
-                    </h3>
+                    </h2>
                     <p className="text-lg leading-relaxed">
                       {testimonial.content}
                     </p>
