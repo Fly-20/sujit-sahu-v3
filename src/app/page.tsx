@@ -125,6 +125,15 @@ export default function Home() {
                         Sujit Sahu is a Professor of Statistics at the University of Southampton. He is the author of the book{' '}
                         <Link href="/books/bookipsrdbs" className="text-blue-600 hover:text-blue-800">Introduction to Probability, Statistics & R; Foundations for Data-Based Sciences</Link>, published by Springer Nature in 2024.
                       </p>
+                      <div className="mt-6">
+                        <Image
+                          src="/1.png"
+                          alt="Additional content"
+                          width={160}
+                          height={80}
+                          className="w-1/5 h-auto rounded-lg"
+                        />
+                      </div>
                     </div>
                     <div className="col-span-1">
                       <Image
@@ -151,6 +160,47 @@ export default function Home() {
                         This textbook is one of the top 20 winners of the{' '}
                         <a href="https://bookauthority.org/books/best-bayesian-statistics-books?t=158olq&s=award&book=0367277980#book-0367277980" className="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener noreferrer">Book Authority Best Bayesian Statistics Books of All Time</a>.
                       </p>
+                      <div className="mt-4" dangerouslySetInnerHTML={{ __html: `
+                        <span class="__dimensions_badge_embed__" data-badge-type="medium-donut" data-doi="10.1201/9780429318443" data-dimensions-badge-installed="true">
+                          <a class="__dimensions_Link" href="https://badge.dimensions.ai/details/doi/10.1201/9780429318443?domain=https://www.sujitsahu.com" target="_blank" referrerpolicy="no-referrer-when-downgrade" aria-label="24 total citations on Dimensions.">
+                            <div class="__dimensions_Badge __dimensions_Badge_style_medium_circle">
+                              <div class="__dimensions_Badge_Image">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+                                  <defs>
+                                    <filter id="76j0nl-blur" color-interpolation-filters="sRGB">
+                                      <feGaussianBlur in="SourceGraphic" stdDeviation="40"></feGaussianBlur>
+                                    </filter>
+                                    <mask id="76j0nl-shape-mask">
+                                      <path fill="white" d="M546.5,287.3l-111.8-194c-1.8-3-4.1-5.6-6.7-7.7c-2.2-2.7-5.4-4.3-8.9-4.5c-2.3-0.7-4.7-1-7-1L188.2,80c-9.3,0-18,5-22.6,13.1l-112,193.8c-4.7,8.1-4.7,18,0,26.1l111.9,193.9c4.7,8.1,13.3,13,22.6,13.1l223.9,0.1c9.3,0,17.9-4.8,22.6-12.8l112-193.7l0,0C551.1,305.1,551.2,295.4,546.5,287.3z M516.6,287.4l-41.5,0.1l-26.7-118.2L516.6,287.4z M337.2,106.2l-114.5,36.3l-20.3-36.4L337.2,106.2z M180.7,119l20.1,36.2L112,237.7L180.7,119z M181,481.8l-69.3-120l89.2,84L181,481.8z M203.3,493.8l19.6-35.6l114.6,35.7L203.3,493.8z M408.1,489.3l-152.7-47.5l-32.3-10.6l-25.3-23.2L82.6,299.6l114.6-106.9l25-23.1v-0.2l0.7-0.2l32.4-10.7l153.6-48.7l35.5,156.6l7.5,33.4l-7.6,33.5L408.1,489.3z M447.1,432.9l27.9-120.3l41.7-0.1L447.1,432.9z"></path>
+                                    </mask>
+                                    <g id="76j0nl-gradient" filter="url(#76j0nl-blur)">
+                                      <g>
+                                        <path fill="#006EB6" d="M0,0l300,300v-424.4C182.9-124.4,76.8-76.9,0,0z"></path>
+                                        <path fill="#28348A" d="M300-124.4V300L600,0C523.2-76.9,417.1-124.4,300-124.4z"></path>
+                                        <path fill="#E20613" d="M600,600c76.8-76.8,124.3-182.9,124.3-300H300L600,600z"></path>
+                                        <path fill="#DA0078" d="M300,300h424.4c0-117.1-47.5-223.2-124.3-300L300,300z"></path>
+                                        <path fill="#5BC4F1" d="M-124.4,300H300L0,0C-76.9,76.8-124.4,182.9-124.4,300z"></path>
+                                        <path fill="#A1C517" d="M0,600l300-300h-424.4C-124.4,417.1-76.9,523.2,0,600z"></path>
+                                        <path fill="#F08800" d="M300,724.4c117.1,0,223.2-47.5,300-124.3L300,300V724.4z"></path>
+                                        <path fill="#FFCB00" d="M300,724.4V300L0,600C76.8,676.9,182.9,724.4,300,724.4z"></path>
+                                      </g>
+                                    </g>
+                                  </defs>
+                                </svg>
+                                <div class="__db_background"></div>
+                                <div class="__db_shape">
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <use mask="url(#76j0nl-shape-mask)" xlink:href="#76j0nl-gradient"></use>
+                                  </svg>
+                                </div>
+                                <div class="__db_score __db_score_normal">24</div>
+                                <div class="__db_label">CITATIONS</div>
+                                <img src="https://badge.dimensions.ai/badge?count=24" class="__dimensions_png" alt="24 total citations on Dimensions.">
+                              </div>
+                            </div>
+                          </a>
+                        </span>
+                      ` }} />
                     </div>
                     <div className="col-span-1">
                       <Image
@@ -298,14 +348,17 @@ export default function Home() {
               {/* Left Column */}
               <div>
                 <h1 className="text-4xl font-bold text-gray-900 mb-4">R package 'bmstdr'</h1>
-                <p className="text-lg text-gray-600">
+                <div className="space-y-4">
+                  <p className="text-lg text-gray-600">
                   The package source is available from{' '}
                   <a href="https://cran.r-project.org/package=bmstdr" className="text-blue-600 hover:text-blue-800">CRAN</a>{' '}
                   and{' '}
                   <a href="https://github.com/sujit-sahu/bmstdr" className="text-blue-600 hover:text-blue-800">github</a>.
                   Here is a{' '}
                   <a href="/bmbook/bmstdr-full_vignette" className="text-blue-600 hover:text-blue-800">full version of the vignette</a>.
-                </p>
+                  </p>
+                  <Link href="/bmbook/install-bmstdr" className="inline-block text-blue-600 hover:text-blue-800 font-medium">Installation Instructions →</Link>
+                </div>
               </div>
 
               {/* Right Column */}
