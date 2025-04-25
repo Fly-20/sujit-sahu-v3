@@ -16,14 +16,14 @@ const BookBMSTDRPage: NextPage = () => {
           <h2 className="text-2xl font-bold mb-6">Chapters</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {chapters.map((chapter) => (
-              <Link 
-                key={chapter}
-                href={`/bookbmstdr/chap${chapter}`}
-                className="p-4 border rounded-lg hover:bg-gray-50 text-blue-600"
-              >
-                Chapter {chapter}
-              </Link>
-            ))}
+  <Link
+    key={chapter}
+    href={`/bookbmstdr/chap${chapter}`}
+    className="p-4 border rounded-lg hover:bg-gray-50 text-blue-600"
+  >
+    Chapter {chapter}
+  </Link>
+))}
           </div>
         </div>
       </div>

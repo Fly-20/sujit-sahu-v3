@@ -343,9 +343,9 @@ export default function Home() {
 
         {/* bmstdr Section */}
         <section id="bmstdr" className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {/* Left Column */}
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col gap-12">
+              {/* bmstdr content: now stacked in one column */}
               <div>
                 <h1 className="text-4xl font-bold text-gray-900 mb-4">R package 'bmstdr'</h1>
                 <div className="space-y-4">
@@ -423,25 +423,30 @@ browseVignettes('bmstdr')</code>
         <section id="contact" className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-8">Contact</h2>
-            <div className="max-w-lg mx-auto bg-white rounded-lg shadow-lg p-6">
-              <form className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
-                  <input type="text" id="name" name="name" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-                  <input type="email" id="email" name="email" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
-                  <textarea id="message" name="message" rows={4} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
-                </div>
-                <button type="submit" className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                  Send Message
-                </button>
-              </form>
-            </div>
+            <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-6">
+  <form className="space-y-4">
+    <div>
+      <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+      <input type="text" id="name" name="name" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+    </div>
+    <div>
+      <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+      <input type="email" id="email" name="email" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+    </div>
+    <div>
+      <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+      <textarea id="message" name="message" rows={4} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
+    </div>
+    {/* Google reCAPTCHA v2 placeholder */}
+    <div className="flex justify-center">
+      {/* Replace data-sitekey with your own reCAPTCHA site key */}
+      <div className="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+    </div>
+    <button type="submit" className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+      Send Message
+    </button>
+  </form>
+</div>
           </div>
         </section>
       </main>

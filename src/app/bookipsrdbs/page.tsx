@@ -9,9 +9,7 @@ const BookIPSRDBSPage: NextPage = () => {
     <Layout>
       <div className="container mx-auto px-4 py-8">
         <div className="lg:w-3/4">
-          <Link href="/books/bookipsrdbs" className="hover:text-blue-800">
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">Introduction to Probability, Statistics and R</h1>
-          </Link>
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">Introduction to Probability, Statistics and R</h1>
           
           <p className="text-gray-600 mb-6 text-lg">
             By Sujit K. Sahu (2024), Springer, ISBN: 978-3-031-378644-5

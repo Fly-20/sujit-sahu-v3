@@ -46,7 +46,7 @@ export default function TestimonialSlider() {
   };
 
   return (
-    <div className="relative bg-rose-300 py-16">
+    <div className="relative bg-rose-300 py-28 min-h-[420px]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         <div className="relative">
           {/* Navigation Buttons */}
@@ -83,12 +83,8 @@ export default function TestimonialSlider() {
                     key={testimonial.id}
                     className="w-full flex-shrink-0 px-4"
                   >
-                    <h2 className="text-3xl font-semibold mb-6">
-                      {testimonial.name} ({testimonial.degree})
-                    </h2>
-                    <p className="text-lg leading-relaxed">
-                      {testimonial.content}
-                    </p>
+                    <h2 className="text-4xl font-bold mb-8">{testimonial.name} <span className="font-normal text-2xl">({testimonial.degree})</span></h2>
+                    <p className="text-2xl leading-relaxed">{testimonial.content}</p>
                   </div>
                 ))}
               </div>

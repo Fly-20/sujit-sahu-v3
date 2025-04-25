@@ -1,3 +1,75 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html.dark, body.dark {
+  background-color: #18181b;
+  color: #f3f4f6;
+}
+
+body.dark {
+  background-color: #18181b;
+  color: #f3f4f6;
+}
+
+.dark .bg-white {
+  background-color: #23272f !important;
+}
+
+.dark .text-gray-900, .dark .text-gray-800 {
+  color: #f3f4f6 !important;
+}
+
+.dark .text-gray-700 {
+  color: #e5e7eb !important;
+}
+
+.dark .text-gray-600 {
+  color: #d1d5db !important;
+}
+
+.dark .shadow-xl, .dark .shadow-lg {
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.7) !important;
+}
+
+.dark .border-gray-300 {
+  border-color: #3f3f46 !important;
+}
+
+.dark .bg-gray-50 {
+  background-color: #18181b !important;
+}
+
+.dark .bg-white {
+  background-color: #23272f !important;
+}
+
+.dark .hover\:bg-gray-100:hover {
+  background-color: #27272a !important;
+}
+
+.dark .bg-gray-100 {
+  background-color: #23272f !important;
+}
+
+.dark pre, .dark .prose pre {
+  background-color: #23272f !important;
+  color: #f3f4f6 !important;
+}
+
+.dark pre.bg-gray-100 {
+  background-color: #44475a !important;
+}
+
+.dark pre.bg-gray-100 code {
+  background-color: transparent !important;
+}
+
+
+.dark .bg-blue-600 {
+  background-color: #2563eb !important;
+}
+
+.dark .hover\:bg-blue-700:hover {
+  background-color: #1d4ed8 !important;
+}
