@@ -9,17 +9,7 @@ interface NavItem {
   href: string;
 }
 
-const navigation: NavItem[] = [
-  { name: 'Home', href: '/' },
-  { name: 'Experience', href: '/#experience' },
-  { name: 'Publications', href: '/publications' },
-  { name: 'Book ipsRdbs', href: '/books/bookipsrdbs' },
-  { name: 'Book Bmstdr', href: '/books/bookbmstdr' },
-  { name: 'R package bmstdr', href: '/#bmstdr' },
-  { name: 'Projects', href: '/projects' },
-  { name: 'Student Reviews', href: '/#reviews' },
-  { name: 'Contact', href: '/#contact' }
-];
+import { navigationLinks } from './navigationLinks';
 
 import SearchModal from './SearchModal';
 import { useState as useThemeState } from 'react';
@@ -48,13 +38,13 @@ export default function Header() {
           
           {/* Desktop navigation */}
           <div className="hidden sm:flex sm:items-center space-x-2" style={{ fontSize: '15px' }}>
-            {navigation.map((item) => (
+            {navigationLinks.map((item) => (
               <Link
-                key={item.name}
+                key={item.href}
                 href={item.href}
                 className={`px-1.5 py-2 transition-colors ${isActive(item.href) ? 'text-blue-600 font-medium' : 'text-gray-700 hover:text-blue-600'}`}
               >
-                {item.name}
+                {item.label}
               </Link>
             ))}
             <button
@@ -167,14 +157,14 @@ export default function Header() {
         {/* Mobile menu */}
         <div className={`${isMenuOpen ? 'block' : 'hidden'} sm:hidden`}>
           <div className="pt-2 pb-3 space-y-1">
-            {navigation.map((item) => (
+            {navigationLinks.map((item) => (
               <Link
-                key={item.name}
+                key={item.href}
                 href={item.href}
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {item.name}
+                {item.label}
               </Link>
             ))}
           </div>
