@@ -2,13 +2,13 @@ import fs from 'fs';
 import path from 'path';
 import Layout from '@/components/layout/Layout';
 
-export default function Chapter8CodeOutput() {
-  const htmlPath = path.join(process.cwd(), 'src/app/bookipsrdbs/chap8/chapter8/Chapter8.html');
+export default function Chapter16CodeOutput() {
+  const htmlPath = path.join(process.cwd(), 'src/app/bookipsrdbs/chap16/chapter16/Chapter16.html');
   let html = '';
   try {
     html = fs.readFileSync(htmlPath, 'utf8');
   } catch (e) {
-    html = '<div style="color:red">Chapter8.html not found.</div>';
+    html = '<div style="color:red">Chapter16.html not found.</div>';
   }
   return (
     <Layout>

@@ -39,7 +39,7 @@ export default function ProjectsPage() {
               <p className="mt-4">
                 A third year Mathematics BSc student, Ms Jinran Zhan, worked on a very similar project in 2018-2019 and
                 based on the project it has been possible to publish the research paper: 
-                <Link href="/projects/Precip_JSM_proceedings_2020.pdf" className="text-blue-600 hover:text-blue-800">
+                <Link href="/Precip_JSM_proceedings_2020.pdf" className="text-blue-600 hover:text-blue-800">
                   Spatio-temporal Bayesian modeling of precipitation using rain gauge data from the Hubbard Brook Experimental Forest, New Hampshire, USA.
                 </Link>
               </p>
@@ -54,7 +54,7 @@ export default function ProjectsPage() {
               </p>
               <p className="mt-4">
                 During 2019-2020 Witaya Bamrungpong, a student in our MSc in Data & Decision Analytics worked on 
-                <Link href="/projects/Presentation_Witaya_31411029.pdf" className="text-blue-600 hover:text-blue-800">
+                <Link href="/Presentation_Witaya_31411029.pdf" className="text-blue-600 hover:text-blue-800">
                   data science project on air pollution modelling
                 </Link> which secured him the <b>top prize</b> from Boeing for 19/20 CORMSIS MSc Maths OR students.
               </p>
@@ -64,14 +64,14 @@ export default function ProjectsPage() {
               <span className="text-2xl text-purple-600 font-arial">medical statistics,</span>
               <p className="mt-2">
                 you will learn to perform Bayesian disease mapping for analysing live coronavirus pandemic data. A research paper jointly written with Prof Dankmar Boehning is 
-                <Link href="/projects/sptime_covid.pdf" className="text-blue-600 hover:text-blue-800">also available.</Link>
+                <Link href="/sptime_covid.pdf" className="text-blue-600 hover:text-blue-800">also available.</Link>
               </p>
             </li>
           </ul>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-6">
             If you are thinking of studying for PhD please email me. You may also want to see my 
-            <Link href="/publicationlist" className="text-blue-600 hover:text-blue-800 mx-1">research publication list</Link>
+            <Link href="/publications" className="text-blue-600 hover:text-blue-800 mx-1">research publication list</Link>
             and
             <Link href="/phdstudents" className="text-blue-600 hover:text-blue-800 mx-1">supervision record.</Link>
           </h2>

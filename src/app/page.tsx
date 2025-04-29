@@ -373,7 +373,7 @@ export default function Home() {
                   <li>
                     <p className="mb-2">
                       There is a long list of dependent packages that may need to be installed on your computer. You may find{' '}
-                      <a href="/bmbook/install-bmstdr.R" className="text-blue-600 hover:text-blue-800">the commands in this R file</a>{' '}
+                      <a href="/bmbook/install-bmstdr" className="text-blue-600 hover:text-blue-800">the commands in this R file</a>{' '}
                       useful to install those packages.
                     </p>
                   </li>
@@ -401,12 +401,12 @@ browseVignettes('bmstdr')</code>
                     </h2>
                   </li>
                   <li>
-                    <a href="/bmbook/bmstdr_0.3.0.manual.pdf" className="text-blue-600 hover:text-blue-800">A pdf version of the manual</a>{' '}
+                    <a href="/bmstdr_0.3.0.manual.pdf" className="text-blue-600 hover:text-blue-800">A pdf version of the manual</a>{' '}
                     is also available.
                   </li>
                   <li>
                     Here is{' '}
-                    <a href="/bmbook/bmstdr_poster.pdf" className="text-blue-600 hover:text-blue-800">a conference poster for bmstdr</a>.
+                    <a href="/bmstdr_poster.pdf" className="text-blue-600 hover:text-blue-800">a conference poster for bmstdr</a>.
                   </li>
                 </ul>
               </div>

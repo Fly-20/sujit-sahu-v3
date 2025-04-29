@@ -7,7 +7,7 @@ export default function Chapter19() {
       <p className="text-gray-600 mb-6">
       Finally, Chapter 19 introduces the concepts of analysis of variance which is a seen as a general model comparison technique where there are categorical explanatory variables. Theoretical generalisation of the techniques from the two preceding chapters are included and so are illustrations using R. In particular, the one way analysis of variance technique is illustrated by using an ecological example on modelling body weights of brushtail possums – a nocturnal animal only native to Australia.
       </p>
-
+      <p>See the <a href="/bookipsrdbs/chap19/chapter19"> Chapter 19 code and output file for the R illustrations provided in this chapter.</a></p>
         <Image
           src="/bookipsrdbs/chap19images/possum_boxplot.png"
           alt="Possum Boxplot"

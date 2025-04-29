@@ -8,7 +8,7 @@ export default function Chapter9() {
       This chapter introduces the basic concepts of statistical inference and statistical modelling. It distinguishes between population distributions and sample statistics (quantities). The concepts of estimators and their sampling (probability) distributions are also introduced. The properties of bias and mean square errors of estimators and defined.
       </p>
 
-
+      <p>See the <a href="/bookipsrdbs/chap9/chapter9"> Chapter 9 code and output file for the R illustrations provided in this chapter.</a></p>
 
 
       <div className="my-8 flex flex-col md:flex-row md:flex-wrap gap-4 md:gap-8 not-prose">

@@ -7,7 +7,7 @@ export default function Chapter16() {
       <p className="text-gray-600 mb-6">
       Chapter 16 discusses asymptotic theories which are often required to guarantee good properties of statistical inference techniques. Three types of modes of convergence in statistics are discussed and illustrated with the help of simulation using R routines. Large sample properties of the maximum likelihood estimators are stated and so are the laws of large numbers.
       </p>
-      
+      <p>See the <a href="/bookipsrdbs/chap16/chapter16"> Chapter 16 code and output file for the R illustrations provided in this chapter.</a></p>
         <Image
           src="/bookipsrdbs/chap16images/clt_cdf.png"
           alt="Central Limit Theorem CDF"
