@@ -1,15 +1,13 @@
-'use client';
+export const dynamic = 'force-static';
 
-import { useEffect } from 'react';
+export async function generateMetadata() {
+  return {
+    title: 'BMSTDR R Package Vignette',
+  };
+}
 
 export default function BmstdrVignette() {
-  useEffect(() => {
-    window.location.href = '/bmbook/bmstdr-full_vignette.html';
-  }, []);
-
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-    </div>
+    <meta httpEquiv="refresh" content="0;url=/bmbook/bmstdr-full_vignette.html" />
   );
 }
