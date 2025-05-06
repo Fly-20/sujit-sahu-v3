@@ -15,7 +15,11 @@ interface TableOfContentsProps {
 }
 
 export default function TableOfContents({ chapters, bookId, isMobile = false }: TableOfContentsProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(!isMobile);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
 
   const chapterList = (
     <div className="space-y-2">
@@ -83,8 +87,30 @@ export default function TableOfContents({ chapters, bookId, isMobile = false }: 
 
   return (
     <div className="bg-white rounded-lg shadow-sm p-4 mb-8">
-      <h2 className="text-xl font-semibold text-gray-900 mb-4">Table of Contents</h2>
-      {chapterList}
+      <button 
+        onClick={toggleDropdown}
+        className="w-full flex items-center justify-between text-xl font-semibold text-gray-900 mb-4 focus:outline-none md:cursor-default"
+      >
+        <span>Table of Contents</span>
+        {isMobile && (
+          <svg
+            className={`w-5 h-5 transform transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        )}
+      </button>
+      <div className={`transition-all duration-300 ease-in-out ${isMobile && !isOpen ? 'max-h-0 opacity-0 overflow-hidden' : 'max-h-[2000px] opacity-100'}`}>
+        {chapterList}
+      </div>
     </div>
   );
 }

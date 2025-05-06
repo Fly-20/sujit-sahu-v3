@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect, TouchEvent } from 'react';
 
 interface Testimonial {
   id: number;
@@ -32,45 +32,56 @@ const testimonials: Testimonial[] = [
 
 export default function TestimonialSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const slideRef = useRef<HTMLDivElement>(null);
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-    );
+  const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
+    setTouchStart(e.targetTouches[0].clientX);
+    setIsDragging(true);
   };
 
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    );
+  const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
+    if (!isDragging) return;
+    setTouchEnd(e.targetTouches[0].clientX);
   };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+    const swipeThreshold = 50; // minimum distance for swipe
+    const swipeDistance = touchStart - touchEnd;
+
+    if (Math.abs(swipeDistance) > swipeThreshold) {
+      if (swipeDistance > 0) {
+        // Swipe left - next slide
+        setCurrentIndex(prev => prev === testimonials.length - 1 ? 0 : prev + 1);
+      } else {
+        // Swipe right - previous slide
+        setCurrentIndex(prev => prev === 0 ? testimonials.length - 1 : prev - 1);
+      }
+    }
+  };
+
+  useEffect(() => {
+    const autoSlideInterval = setInterval(() => {
+      setCurrentIndex(prev => prev === testimonials.length - 1 ? 0 : prev + 1);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(autoSlideInterval);
+  }, []);
 
   return (
-    <div className="relative bg-rose-300 py-28 min-h-[420px]">
+    <div className="relative bg-rose-300 py-28 min-h-[420px] overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         <div className="relative">
-          {/* Navigation Buttons */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 text-white hover:text-gray-200 focus:outline-none"
-            aria-label="Previous testimonial"
-          >
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 text-white hover:text-gray-200 focus:outline-none"
-            aria-label="Next testimonial"
-          >
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-
           {/* Testimonial Content */}
-          <div className="overflow-hidden">
+          <div 
+            className="overflow-hidden touch-pan-y"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            ref={slideRef}>
             <div
               className="transition-transform duration-500 ease-in-out"
               style={{

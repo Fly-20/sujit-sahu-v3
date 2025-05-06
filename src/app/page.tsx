@@ -6,6 +6,7 @@ import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
 import TestimonialSlider from '@/components/home/TestimonialSlider';
 
+
 interface Experience {
   title: string;
   organization: string;
@@ -62,7 +63,7 @@ export default function Home() {
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}
         <section id="hero" className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 overflow-hidden">
             <div className="flex flex-col md:flex-row gap-12">
               {/* Left Column - Profile Image & Social Icons */}
               <div className="w-full md:w-1/4 flex flex-col items-center">
@@ -119,9 +120,9 @@ export default function Home() {
                 <h1 className="text-4xl font-bold text-gray-900 mb-6">Biography</h1>
                 <div className="space-y-12">
                   {/* First Row */}
-                  <div className="grid grid-cols-3 gap-8">
-                    <div className="col-span-2">
-                      <p className="text-lg text-gray-700">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+                    <div className="col-span-1 md:col-span-2">
+                      <p className="text-base md:text-lg text-gray-700 leading-relaxed md:leading-normal">
                         Sujit Sahu is a Professor of Statistics at the University of Southampton. He is the author of the book{' '}
                         <Link href="/books/bookipsrdbs" className="text-blue-600 hover:text-blue-800">Introduction to Probability, Statistics & R; Foundations for Data-Based Sciences</Link>, published by Springer Nature in 2024.
                       </p>
@@ -141,22 +142,22 @@ export default function Home() {
                         alt="Introduction to Probability, Statistics & R Book Cover"
                         width={450}
                         height={300}
-                        className="w-3/4 h-auto rounded-lg shadow-lg"
+                        className="w-2/3 md:w-3/4 h-auto rounded-lg shadow-lg mx-auto"
                       />
                     </div>
                   </div>
 
                   {/* Second Row */}
-                  <div className="grid grid-cols-3 gap-8">
-                    <div className="col-span-2 space-y-6">
-                      <p className="text-lg text-gray-700">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+                    <div className="col-span-1 md:col-span-2 space-y-4 md:space-y-6">
+                      <p className="text-base md:text-lg text-gray-700 leading-relaxed md:leading-normal">
                         He is also the author of the book{' '}
                         <Link href="/books/bookbmstdr" className="text-blue-600 hover:text-blue-800">Bayesian modeling of spatio-temporal data with R</Link> published by{' '}
                         <a href="#" className="text-blue-600 hover:text-blue-800">Chapman and Hall/CRC Press</a>. Here is a{' '}
                         <a href="https://x.com/Sujit_K_Sahu/status/1493173873705197569" className="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener noreferrer">(Twitter) X video</a> introducing the book.
                       </p>
 
-                      <p className="text-lg text-gray-700">
+                      <p className="text-base md:text-lg text-gray-700 leading-relaxed md:leading-normal">
                         This textbook is one of the top 20 winners of the{' '}
                         <a href="https://bookauthority.org/books/best-bayesian-statistics-books?t=158olq&s=award&book=0367277980#book-0367277980" className="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener noreferrer">Book Authority Best Bayesian Statistics Books of All Time</a>.
                       </p>
@@ -208,7 +209,7 @@ export default function Home() {
                         alt="Bayesian modeling of spatio-temporal data with R Book Cover"
                         width={450}
                         height={300}
-                        className="w-3/4 h-auto rounded-lg shadow-lg"
+                        className="w-2/3 md:w-3/4 h-auto rounded-lg shadow-lg mx-auto"
                       />
                     </div>
                   </div>
@@ -258,7 +259,7 @@ export default function Home() {
 
         {/* Books Section */}
         <section id="books" className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 overflow-hidden">
             <h2 className="text-3xl font-bold text-gray-900 mb-8">Books</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -292,7 +293,7 @@ export default function Home() {
               {/* Post-graduate Supervision */}
               <div>
                 <h4 className="text-2xl font-semibold text-gray-900 mb-4">Post-graduate Supervision</h4>
-                <p className="text-lg text-gray-700"><Link href="/phdstudents" className="text-blue-600 hover:text-blue-800">Here is a list of all my past post-docs, PhD and MSc students.</Link></p>
+                <p className="text-base md:text-lg text-gray-700 leading-relaxed md:leading-normal"><Link href="/phdstudents" className="text-blue-600 hover:text-blue-800">Here is a list of all my past post-docs, PhD and MSc students.</Link></p>
               </div>
 
               {/* Research Grants */}
@@ -421,28 +422,44 @@ browseVignettes('bmstdr')</code>
 
         {/* Contact Section */}
         <section id="contact" className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 overflow-hidden">
             <h2 className="text-3xl font-bold text-gray-900 mb-8">Contact</h2>
             <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-6">
-  <form className="space-y-4">
+  <form className="space-y-4" action="https://formspree.io/f/mrbqqrvg" method="POST">
     <div>
       <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
-      <input type="text" id="name" name="name" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        required
+        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" 
+      />
     </div>
     <div>
       <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-      <input type="email" id="email" name="email" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        required
+        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" 
+      />
     </div>
     <div>
       <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
-      <textarea id="message" name="message" rows={4} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
+      <textarea 
+        id="message" 
+        name="message" 
+        rows={4} 
+        required
+        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+      ></textarea>
     </div>
-    {/* Google reCAPTCHA v2 placeholder */}
-    <div className="flex justify-center">
-      {/* Replace data-sitekey with your own reCAPTCHA site key */}
-      <div className="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
-    </div>
-    <button type="submit" className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+    <button 
+      type="submit" 
+      className="w-full inline-flex justify-center items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+    >
       Send Message
     </button>
   </form>
