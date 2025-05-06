@@ -1,11 +1,25 @@
 'use client';
 import React from 'react';
-
-import type { NextPage } from 'next';
 import Image from 'next/image';
 import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
 import TestimonialSlider from '@/components/home/TestimonialSlider';
+import type { StaticImageData } from 'next/image';
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      div: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+      main: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+      section: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+      h1: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
+      h2: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
+      h3: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
+      p: React.DetailedHTMLProps<React.HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
+      a: React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
+    }
+  }
+}
 
 interface Experience {
   title: string;
@@ -14,7 +28,7 @@ interface Experience {
   location: string;
 }
 
-const experiences = [
+const experiences: Experience[] = [
   {
     title: 'Professor, Senior Lecturer and Lecturer in Statistics',
     organization: 'University of Southampton',
@@ -35,51 +49,108 @@ const experiences = [
   },
 ];
 
-const booksList = [
+interface Book {
+  title: string;
+  description: string;
+  link: string;
+  imageUrl?: string;
+}
+
+const booksList: Book[] = [
   {
     title: 'Introduction to Probability, Statistics and R for Data Science',
     description: 'A comprehensive guide to probability, statistics, and R programming with applications in data science.',
-    link: 'bookipsrdbs',
-    imageUrl: '/book-ipsrdbs.jpg', // We'll add this image later
+    link: '/books/bookipsrdbs',
+    imageUrl: '/book-ipsrdbs.jpg',
   },
   {
     title: 'Bayesian Modeling and Spatial-Temporal Data Analysis in R',
     description: 'Advanced techniques for analyzing spatial and temporal data using Bayesian methods in R.',
-    link: 'bookbmstdr',
-    imageUrl: '/book-bmstdr.jpg', // We'll add this image later
+    link: '/books/bookbmstdr',
+    imageUrl: '/book-bmstdr.jpg',
   },
-  {
-    title: 'Bayesian Modeling of Spatio-Temporal Data with R',
-    description: 'Advanced techniques for modeling and analyzing spatio-temporal data using Bayesian methods and R.',
-    link: 'bookbmstdr',
-  }
 ];
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <Layout>
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-        <section id="hero" className="py-16 bg-white">
+        <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row gap-12">
-              {/* Left Column - Profile Image & Social Icons */}
+              {/* Profile Image */}
               <div className="w-full md:w-1/4 flex flex-col items-center">
-                <div className="w-48 h-48 md:w-64 md:h-64">
+                <div className="w-48 h-48 md:w-64 md:h-64 relative overflow-hidden rounded-full">
                   <Image
                     src="/sujit-profile.png"
                     alt="Prof Sujit Sahu"
-                    width={400}
-                    height={400}
-                    className="w-full h-full object-cover rounded-full"
+                    fill
+                    className="object-cover"
                     priority
-                    quality={100}
                   />
                 </div>
-                <div className="text-center mt-6">
-                  <h1 className="text-3xl font-bold text-gray-900">Sujit Sahu</h1>
-                  <h2 className="text-xl text-gray-700 mt-2">Professor of Statistics</h2>
-                  <p className="text-gray-600 mt-1">University of Southampton</p>
+              </div>
+              
+              {/* Content */}
+              <div className="w-full md:w-3/4">
+                <h1 className="text-4xl font-bold mb-4">Prof Sujit Sahu</h1>
+                <p className="text-xl text-gray-600 mb-8">Professor of Statistics at University of Southampton</p>
+                
+                {/* Experience */}
+                <div className="mb-8">
+                  <h2 className="text-2xl font-semibold mb-4">Experience</h2>
+                  {experiences.map((exp, index) => (
+                    <div key={index} className="mb-4">
+                      <h3 className="font-semibold">{exp.title}</h3>
+                      <p className="text-gray-600">{exp.organization}</p>
+                      <p className="text-gray-500">{exp.duration} • {exp.location}</p>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Books */}
+                <div>
+                  <h2 className="text-2xl font-semibold mb-4">Books</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {booksList.map((book, index) => (
+                      <Link href={book.link} key={index} className="block p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        {book.imageUrl && (
+                          <div className="mb-4">
+                            <Image
+                              src={book.imageUrl}
+                              alt={book.title}
+                              width={200}
+                              height={300}
+                              className="object-cover rounded"
+                            />
+                          </div>
+                        )}
+                        <h3 className="font-semibold mb-2">{book.title}</h3>
+                        <p className="text-gray-600">{book.description}</p>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Testimonials */}
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-center mb-12">What Students Say</h2>
+            <TestimonialSlider />
+          </div>
+        </section>
+      </main>
+    </Layout>
+  );
+};
+
+export default Home;
+
                 </div>
                 {/* Social Icons */}
                 <div className="flex gap-4 mt-6">
@@ -137,117 +208,6 @@ export default function Home() {
                     <div className="col-span-1">
                       <Image
                         src="/cover_ipsRdbs.png"
-                        alt="Introduction to Probability, Statistics & R Book Cover"
-                        width={450}
-                        height={300}
-                        className="w-3/4 h-auto rounded-lg shadow-lg"
-                      />
-                    </div>
-                  </div>
-                                    </mask>
-                                    <g id="76j0nl-gradient" filter="url(#76j0nl-blur)">
-                                      <g>
-                                        <path fill="#006EB6" d="M0,0l300,300v-424.4C182.9-124.4,76.8-76.9,0,0z"></path>
-                                        <path fill="#28348A" d="M300-124.4V300L600,0C523.2-76.9,417.1-124.4,300-124.4z"></path>
-                                        <path fill="#E20613" d="M600,600c76.8-76.8,124.3-182.9,124.3-300H300L600,600z"></path>
-                                        <path fill="#DA0078" d="M300,300h424.4c0-117.1-47.5-223.2-124.3-300L300,300z"></path>
-                                        <path fill="#5BC4F1" d="M-124.4,300H300L0,0C-76.9,76.8-124.4,182.9-124.4,300z"></path>
-                                        <path fill="#A1C517" d="M0,600l300-300h-424.4C-124.4,417.1-76.9,523.2,0,600z"></path>
-                                        <path fill="#F08800" d="M300,724.4c117.1,0,223.2-47.5,300-124.3L300,300V724.4z"></path>
-                                        <path fill="#FFCB00" d="M300,724.4V300L0,600C76.8,676.9,182.9,724.4,300,724.4z"></path>
-                                      </g>
-                                    </g>
-                                  </defs>
-                                </svg>
-                                <div class="__db_background"></div>
-                                <div class="__db_shape">
-                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <use mask="url(#76j0nl-shape-mask)" xlink:href="#76j0nl-gradient"></use>
-                                  </svg>
-                                </div>
-                                <div class="__db_score __db_score_normal">24</div>
-                                <div class="__db_label">CITATIONS</div>
-                                <img src="https://badge.dimensions.ai/badge?count=24" class="__dimensions_png" alt="24 total citations on Dimensions.">
-                              </div>
-                            </div>
-                          </a>
-                        </span>
-                      ` }} />
-                    </div>
-                    <div className="col-span-1">
-                      <Image
-                        src="/cover_bmstdr.png"
-                        alt="Bayesian modeling of spatio-temporal data with R Book Cover"
-                        width={450}
-                        height={300}
-                        className="w-3/4 h-auto rounded-lg shadow-lg"
-                      />
-                    </div>
-                  </div>
-
-
-                </div>
-
-                {/* Interests and Education Section */}
-                <p className="text-lg text-gray-700 mb-8">
-            <Link href="/2023_sahuresume.pdf" className="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener noreferrer">Download Sujit's resumé</Link>
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-8 mt-12">
-                  {/* Interests */}
-                  <div>
-                    <h2 className="text-2xl font-semibold text-gray-900 mb-4">Research Interests</h2>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700">
-                      <li>Bayesian Statistics and Modeling</li>
-                      <li>Spatio-temporal Data Analysis</li>
-                      <li>Environmental and Climate Science Applications</li>
-                    </ul>
-                  </div>
-
-                  {/* Education */}
-                  <div>
-                    <h2 className="text-2xl font-semibold text-gray-900 mb-4">Education</h2>
-                    <div className="space-y-4">
-                      <div>
-                        <h3 className="text-lg font-medium text-gray-900">PhD in Statistics, 1994</h3>
-                        <p className="text-gray-600">University of Connecticut</p>
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-medium text-gray-900">Master of Statistics, 1989</h3>
-                        <p className="text-gray-600">Indian Statistical Institute</p>
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-medium text-gray-900">Bachelor of Statistics (Honors), 1987</h3>
-                        <p className="text-gray-600">Indian Statistical Institute</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Books Section */}
-        <section id="books" className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Books</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Introduction to Probability, Statistics and R for Data Science</h3>
-                  <p className="text-gray-600 mb-4">A comprehensive guide to probability, statistics, and R programming with applications in data science.</p>
-                  <a href="/books/bookipsrdbs" className="text-blue-600 hover:text-blue-800 font-medium">Learn more →</a>
-                </div>
-              </div>
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Bayesian Modeling and Spatial-Temporal Data Analysis in R</h3>
-                  <p className="text-gray-600 mb-4">Advanced techniques for analyzing spatial and temporal data using Bayesian methods in R.</p>
-                  <a href="/books/bookbmstdr" className="text-blue-600 hover:text-blue-800 font-medium">Learn more →</a>
-                </div>
-              </div>
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Bayesian Modeling and Spatial-Temporal Data Analysis in R</h3>
                   <p className="text-gray-600 mb-4">Advanced techniques for modeling and analyzing spatio-temporal data using Bayesian methods and R.</p>
