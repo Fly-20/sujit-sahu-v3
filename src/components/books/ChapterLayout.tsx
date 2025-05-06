@@ -26,16 +26,6 @@ export default function ChapterLayout({ bookId, chapterNumber, children }: Chapt
     <Layout>
       <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <nav className="mb-8 flex items-center space-x-4">
-            
-            <span className="text-gray-500">/</span>
-            <Link
-              href={`/books/${bookId}`}
-              className="text-blue-600 hover:text-blue-800"
-            >
-              {book.title}
-            </Link>
-          </nav>
 
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Left sidebar with Table of Contents */}
@@ -59,6 +49,8 @@ export default function ChapterLayout({ bookId, chapterNumber, children }: Chapt
                     {chapter.title}
                   </h1>
                   
+
+
                   {children}
 
                   <div className="flex justify-between mt-12 pt-6 border-t">

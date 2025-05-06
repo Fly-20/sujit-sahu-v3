@@ -10,9 +10,8 @@ export default function Chapter1() {
       
       <p className="text-gray-600 mb-6">
       Chapter 1 introduces the main data sets analyzed in this book. The example data sets are categorized in two broad types: point referenced data and areal unit data. The examples of the first type includes air pollution data from the state of New York, England and Wales and also a sub region in the Eastern United States east of the Mississippi river. Other examples include precipitation volume data from rain-gauges situated in the Hubbard Brook experimental forest in New Hampshire, USA and satellite recorded ocean chlorophyll levels and sea surface temperature and also another one on measurements of ocean temperature and salinity levels from roaming Argo floats in the North Atlantic Ocean. The areal unit data sets include Covid-19 mortality in England, vaccination coverage in Kenya, annual cancer rates in the USA, hospitalization rates in England and child poverty in London. For each data set a map of the study region is drawn and modeling objectives are stated.
-
-R code for reproducing the figures in Chapter 1.
       </p>
+      <p><a href="/bookbmstdr/chap1/chapter1">R code for reproducing the figures in Chapter 1.</a></p>
       <div className="my-0 sm:my-8 flex flex-col md:flex-row md:flex-wrap gap-4 md:gap-8 not-prose">
   <Image
     src="/bookbmstdr/chap1images/3yave_99_06_base85.png"

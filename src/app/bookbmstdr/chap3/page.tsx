@@ -12,9 +12,8 @@ export default function Chapter3() {
       engtotals: areal unit data on Covid-19 mortality in England,
       engdeaths: areal unit weekly temporal data on Covid-19 mortality in England,
       Familiarity of these data sets is crucial for understanding the modeling performed in the later chapters.
-
-      R code for reproducing the examples in Chapter 3.
        </p>
+       <p><a href="/bookbmstdr/chap3/chapter3">R code for reproducing the figures in Chapter 3.</a></p>
        <div className="my-0 sm:my-8 flex flex-col md:flex-row md:flex-wrap gap-4 md:gap-8 not-prose">
   <Image src="/bookbmstdr/chap3images/england_jsa_dec_2019.png" alt="england_jsa_dec_2019.png" width={400} height={250} style={{ height: '250px', width: 'auto', objectFit: 'contain' }} className="rounded-lg" />
   <Image src="/bookbmstdr/chap3images/boxplots_sptime.png" alt="boxplots_sptime.png" width={400} height={250} style={{ height: '250px', width: 'auto', objectFit: 'contain' }} className="rounded-lg" />
