@@ -16,16 +16,6 @@ const Resources: NextPage = () => {
     <Layout>
       <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <nav className="mb-8 flex items-center space-x-4">
-  <span className="text-gray-500">/</span>
-  <Link
-    href={`/books/${bookId}`}
-    className="text-blue-600 hover:text-blue-800"
-  >
-    {book.title}
-  </Link>
-</nav>
-
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Left sidebar with Table of Contents */}
             <div className="lg:w-1/4">
@@ -53,18 +43,18 @@ const Resources: NextPage = () => {
                       Further, resources (e.g. lecture slides) will be published through this page. Please revisit this page later. The data sets discussed in the book are published via the R package
                       <a href="https://cran.r-project.org/web/packages/ipsRdbs/index.html" className="text-blue-600 hover:text-blue-800"> ipsRdbs </a> 
                       available from CRAN. The data files are also available to download from this website as a zip file,
-                      <a href="/ipsRdbsdata.zip" className="text-blue-600 hover:text-blue-800"> ipsRdbsdata.zip. </a>
+                      <a href="/ipsRdbsdata.zip" className="text-blue-600 hover:text-blue-800">ipsRdbsdata.zip. </a>
                     </p>
 
                     <p className="text-gray-600 mb-6">
                       Here are my <a href="statistics_talk.pdf" className="text-blue-600 hover:text-blue-800">statistics</a> and 
-                      <a href="research_writing_anatomy.pdf" className="text-blue-600 hover:text-blue-800">research writing slides</a> 
+                      <a href="research_writing_anatomy.pdf" className="text-blue-600 hover:text-blue-800"> research writing slides</a> 
                       for my talk at the Royal Hampshire County Hospital in Winchester on 1st of May 2024.
                     </p>
 
                     <p className="text-gray-600 mb-6">
                       Here are my <a href="sks_tester_lecture.pdf" className="text-blue-600 hover:text-blue-800">statistics (pdf version)</a> or 
-                      <a href="sks_tester_lecture.pptx" className="text-blue-600 hover:text-blue-800">powerpoint slides</a> 
+                      <a href="sks_tester_lecture.pptx" className="text-blue-600 hover:text-blue-800"> powerpoint slides</a> 
                       for my talk on 8/9/2024.
                     </p>
                   </div>
