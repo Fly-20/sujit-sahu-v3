@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
+import { useBookPage } from '@/hooks/useBookPage';
 
 interface Chapter {
   title: string;
@@ -11,15 +12,21 @@ interface Chapter {
 interface TableOfContentsProps {
   chapters: Chapter[];
   bookId: string;
-  isMobile?: boolean;
 }
 
-export default function TableOfContents({ chapters, bookId, isMobile = false }: TableOfContentsProps) {
-  const [isOpen, setIsOpen] = useState(!isMobile);
+const TableOfContents: React.FC<TableOfContentsProps> = ({ chapters, bookId }) => {
+  const { isOpen, setIsOpen, isMobile, setIsMobile } = useBookPage();
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+      setIsOpen(window.innerWidth >= 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const chapterList = (
     <div className="space-y-2">
@@ -54,63 +61,29 @@ export default function TableOfContents({ chapters, bookId, isMobile = false }: 
     </div>
   );
 
-  if (isMobile) {
-    return (
-      <div className="relative w-full">
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="w-full flex items-center justify-between px-4 py-3 text-base font-semibold text-gray-900 bg-white rounded-md shadow hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-        >
-          <span>Table of Contents</span>
-          <svg
-            className={`ml-2 h-5 w-5 transform ${isOpen ? 'rotate-180' : ''} transition-transform duration-200`}
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </button>
-
-        {isOpen && (
-          <div className="absolute z-10 mt-2 w-full bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 py-2">
-            {chapterList}
-          </div>
-        )}
-      </div>
-    );
-  }
-
   return (
     <div className="bg-white rounded-lg shadow-sm p-4 mb-8">
       <button 
-        onClick={toggleDropdown}
-        className="w-full flex items-center justify-between text-xl font-semibold text-gray-900 mb-4 focus:outline-none md:cursor-default"
+        className="w-full flex items-center justify-between text-xl font-semibold text-gray-900 mb-4 focus:outline-none cursor-pointer md:cursor-default"
+        onClick={() => isMobile && setIsOpen(!isOpen)}
       >
         <span>Table of Contents</span>
-        {isMobile && (
-          <svg
-            className={`w-5 h-5 transform transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        )}
+        <svg 
+          className={`w-6 h-6 transform transition-transform duration-300 md:hidden ${isOpen ? 'rotate-180' : ''}`}
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
       </button>
-      <div className={`transition-all duration-300 ease-in-out ${isMobile && !isOpen ? 'max-h-0 opacity-0 overflow-hidden' : 'max-h-[2000px] opacity-100'}`}>
+      <div 
+        className={`transition-all duration-300 ease-in-out overflow-hidden md:max-h-[2000px] md:opacity-100 ${isOpen ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}
+      >
         {chapterList}
       </div>
     </div>
   );
-}
+};
+
+export default TableOfContents;
