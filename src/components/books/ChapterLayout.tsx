@@ -37,7 +37,7 @@ export default function ChapterLayout({ bookId, chapterNumber, children }: Chapt
 
               {/* Mobile Table of Contents Dropdown */}
               <div className="lg:hidden">
-                <TableOfContents chapters={book.chapters} bookId={bookId} isMobile={true} />
+                <TableOfContents chapters={book.chapters} bookId={bookId} />
               </div>
             </div>
 

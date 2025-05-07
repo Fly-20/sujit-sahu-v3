@@ -27,7 +27,7 @@ export async function GET(
 ) {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_SITE_URL || ''}/data/chapters/${params.bookId}-${params.chapterId}.json`
+      new URL(`/data/chapters/${params.bookId}-${params.chapterId}.json`, process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3001')
     );
     
     if (!response.ok) {
