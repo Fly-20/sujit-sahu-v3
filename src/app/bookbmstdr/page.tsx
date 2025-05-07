@@ -1,3 +1,5 @@
+'use client';
+
 import type { NextPage } from 'next';
 import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
@@ -11,10 +13,34 @@ const BookBMSTDRPage: NextPage = () => {
             <div className="flex flex-col lg:flex-row gap-8">
               <div className="lg:w-1/4">
                 <div className="bg-white rounded-lg shadow-sm p-4 mb-8">
-                  <button className="w-full flex items-center justify-between text-xl font-semibold text-gray-900 mb-4 focus:outline-none md:cursor-default">
+                  <button 
+                    className="w-full flex items-center justify-between text-lg md:text-xl font-semibold text-gray-900 mb-4 focus:outline-none cursor-pointer md:cursor-default"
+                    onClick={(e) => {
+                      const target = e.currentTarget;
+                      const content = target.nextElementSibling;
+                      const arrow = target.querySelector('.arrow');
+                      if (window.innerWidth < 768) { // Only for mobile
+                        if (content instanceof HTMLElement) {
+                          content.style.maxHeight = content.style.maxHeight === '0px' ? '2000px' : '0px';
+                          content.style.opacity = content.style.maxHeight === '0px' ? '0' : '1';
+                        }
+                        if (arrow instanceof HTMLElement) {
+                          arrow.style.transform = arrow.style.transform === 'rotate(180deg)' ? 'rotate(0deg)' : 'rotate(180deg)';
+                        }
+                      }
+                    }}
+                  >
                     <span>Table of Contents</span>
+                    <svg 
+                      className="arrow w-6 h-6 transform transition-transform duration-300 md:hidden" 
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
                   </button>
-                  <div className="transition-all duration-300 ease-in-out max-h-[2000px] opacity-100">
+                  <div className="transition-all duration-300 ease-in-out max-h-0 opacity-0 md:max-h-[2000px] md:opacity-100">
                     <div className="space-y-2">
                       <Link href="/bookbmstdr/chap1" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
                         1. Examples of spatio-temporal data
