@@ -18,15 +18,15 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 2,
-    name: 'John Smith',
-    degree: 'MSc',
-    content: 'The statistical modeling course was incredibly comprehensive and practical. Dr. Sahu\'s expertise and teaching methodology made complex concepts accessible and engaging.'
+    name: 'Ms Melody August',
+    degree: 'BSc',
+    content: 'I just wanted to say thank you for all the help you gave me, particularly in my last-minute panic to get it all done! I found the topic very interesting and something I could see myself doing in my future career. I enjoyed completing the project as it gave a better insight to what a career in data may involve, through cleaning and analyzing data and then writing a final report. You continued to push me to achieve my best.😄'
   },
   {
     id: 3,
-    name: 'Emily Johnson',
-    degree: 'PhD',
-    content: 'Working with Professor Sahu on spatial-temporal modeling was a highlight of my PhD journey. His guidance and deep knowledge of the subject matter were invaluable to my research.'
+    name: 'Ms Xiaoqing Chen',
+    degree: 'MSc',
+    content: 'I have learned a lot from Prof Sahu. At first I was not sure if I would like all the coding in R. But he certainly made it easy for me to learn. 😄'
   }
 ];
 

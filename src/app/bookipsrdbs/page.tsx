@@ -26,7 +26,7 @@ const BookIPSRDBSPage: NextPage = () => {
 
           <p className="text-gray-600 mb-6 text-lg" id="the-book-is-based-on-my-lecture-notes">
             The book is based on my lecture notes for many courses (modules), for example, 
-            <a href="https://www.sujitsahu.com/teach/2020_math1024.pdf" className="text-blue-600 hover:text-blue-800">Introduction to Probability and Statistics,</a> 
+            <Link href="/2020_math1024.pdf" className="text-blue-600 hover:text-blue-800" target="_blank">Introduction to Probability and Statistics,</Link> 
             taught to first and second year students in various BSc in Mathematics degree programmes.
             <a className="anchorjs-link" aria-label="Anchor" data-anchorjs-icon="" href="#the-book-is-based-on-my-lecture-notes" style={{ font: '1em / 1 anchorjs-icons', paddingLeft: '0.375em' }}></a>
           </p>
